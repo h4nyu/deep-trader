@@ -1,2 +1,6 @@
 pip
 pip-tools
+
+# test 
+pytest
+pytest-timeout

@@ -18,3 +18,10 @@ pip-selfcheck.json
 
 # bower components
 app/static/bower_components
+
+# Packages
+*.egg
+*.egg-info
+
+# pytest
+.cache/

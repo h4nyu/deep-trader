@@ -4,10 +4,17 @@
 #
 #    pip-compile --output-file dev-requirements.txt dev-requirements.in
 #
+appdirs==1.4.3            # via setuptools
 click==6.7                # via pip-tools
 first==2.0.1              # via pip-tools
+packaging==16.8           # via setuptools
 pip-tools==1.8.2
-six==1.10.0               # via pip-tools
+py==1.4.33                # via pytest
+pyparsing==2.2.0          # via packaging
+pytest-timeout==1.2.0
+pytest==3.0.7
+six==1.10.0               # via packaging, pip-tools, setuptools
 
 # The following packages are considered to be unsafe in a requirements file:
-pip==9.0.1
+# pip
+# setuptools                # via pytest
