@@ -4,6 +4,5 @@ bin
 lib
 include
 app/static/bower_components
-
-
+pip-selfcheck.json
 
