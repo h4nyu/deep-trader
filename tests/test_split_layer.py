@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from app.layers import Split
+import pytest
 
-class TestSplit(object):
 
-    def pytest_funcarg__split(request):
-        return Split()
+@pytest.fixture()
+def split(request):
+    return Split()
 
-    def test_type(self, split):
-        assert isinstance(split, Split)
+
+def test_type(split):
+    assert isinstance(split, Split)
