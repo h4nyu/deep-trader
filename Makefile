@@ -15,5 +15,5 @@ test:
 
 env:
 	pip install pip-tools
-	ln -sf   $(pwd)/app $(pwd)/tests/app
+	ln -sf $(shell pwd)/app $(shell pwd)/tests/app
 
