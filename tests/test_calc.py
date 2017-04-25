@@ -5,4 +5,4 @@ import app.calc
 
 
 def test_add():
-    assert app.calc.add(1, 2) == 3
+    assert app.calc.add(1, 2) == 4
