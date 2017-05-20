@@ -8,3 +8,4 @@ build:
         - source bin/activate
         - make install_dev
         - pytest
+
