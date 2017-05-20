@@ -4,3 +4,7 @@ pip-tools
 # test 
 pytest
 pytest-timeout
+pytest-cov
+pytest-pep8
+pytest-xdist
+autopep8
