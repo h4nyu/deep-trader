@@ -1,0 +1,12 @@
+stages:
+    - build
+
+build:
+    stage: build
+    script:
+        - virtualenv -p /usr/bin/python3.5 .
+        - source bin/activate
+        - make install_dev
+
+
+
