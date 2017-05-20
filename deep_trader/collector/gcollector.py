@@ -6,95 +6,10 @@ from datetime import datetime
 from datetime import timedelta
 from io import StringIO
 from pprint import pprint
-from abc import ABCMeta
-from abc import abstractmethod
 import pandas as pd
 import numpy as np
 import json
-
-
-class Dao(metaclass=ABCMeta):
-
-    """Docstring for Dao. """
-
-    def __init__(self):
-        """TODO: to be defined1. """
-        metaclass = ABCmeta.__init__(self)
-
-    @abstractmethod
-    def get_histrical_data(self, symbol, start_date, end_date):
-        pass
-
-    @abstractmethod
-    def get_quote(self, symbol):
-        pass
-
-
-class DataChunk(object):
-
-    """Docstring for DataChunk. """
-
-    def __init__(self):
-        """TODO: to be defined1. """
-        self.timestamp_header = None
-        self.frames = None
-        self.interval = None
-        self.colums = None
-        self.date_sessions = None
-        self.timezone_offset = None
-
-    def read_text(self, text):
-        pass
-
-
-class Frame(object):
-
-    """Docstring for DataChunk. """
-
-    def __init__(self):
-        """TODO: to be defined1. """
-        self.timestamp_header = None
-        self.frames = None
-
-
-class YCollector(Dao):
-
-    """Docstring for Collector. """
-
-    def __init__(self):
-        """TODO: to be defined1. """
-        pass
-        self.api_url = 'https://query.yahooapis.com/v1/public/yql?'
-        self.datatable_url = 'store://datatables.org/alltableswithkeys'
-
-    def get_histrical_data(self, symbol, start_date, end_date):
-        yql = 'select * from yahoo.finance.historicaldata '\
-            + 'where symbol = "{0}" '.format(symbol)\
-            + 'and startDate = "{0}" '.format(start_date)\
-            + 'and endDate = "{0}"'.format(end_date)
-
-        pyload = {
-            'q': yql,
-            'format': 'json',
-            'env': self.datatable_url
-        }
-
-        r = requests.get(self.api_url, params=pyload)
-        return r.json()['query']['results']['quote']
-
-    def get_quote(self, symbol):
-        yql = 'select * from yahoo.finance.quote '\
-            + 'where symbol = "{0}" '.format(symbol)
-
-        pyload = {
-            'q': yql,
-            'format': 'json',
-            'env': self.datatable_url
-        }
-
-        r = requests.get(self.api_url, params=pyload)
-
-        return r.json()['query']['results']['quote']
+from .dao import Dao
 
 
 class GCollector(Dao):
@@ -136,7 +51,6 @@ class GCollector(Dao):
 
         self.interval = int(header_lines[3][9:])
         self.offset = int(header_lines[7][16:])
-        pprint(self.interval)
 
         body_lines = [line.split(',') for line in lines[8:]]
 
@@ -149,6 +63,8 @@ class GCollector(Dao):
         df["DATE"] = df["DATE"].map(lambda x: datetime.fromtimestamp(x))
 
         return df
+    # except:
+        # return None
 
     def convert_timestamp(self, line, interval):
         if("a" in line):
