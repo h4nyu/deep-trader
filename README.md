@@ -8,8 +8,6 @@
 
 ## 学習部
 
-案として２つある．
-
 ### 教師あり学習
 
 時系列データを元に予想する．
@@ -31,6 +29,7 @@ DQNを用いて利益を最大化するような方策込の学習を行う
 ## Install
 
 ```
-git clone git@tkg.pgw.jp:fintech/deep-trader.git
-make install
+git clone git@tkg.pgw.jp:fintech/deep_trader.git
+cd deep_trader
+docker-compose up
 ```
