@@ -14,10 +14,11 @@ install_dev:
 test:
 	py.test
 
-update_pacakege:
-	pip install pip-tools
+fetch_package:
 	pip-compile requirements.in
 	pip-compile dev-requirements.in
+
+sync_package:
 	pip-sync requirements.txt dev-requirements.txt
 
 

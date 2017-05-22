@@ -38,3 +38,6 @@ osca_server/static/bower_components
 
 # tests
 .coverage
+
+# docker
+.env

@@ -1,0 +1,19 @@
+version: '2'
+services:
+    deep-trader:
+        image: deep-trader
+        container_name: deep-trader
+        env_file:
+            .env
+        build: 
+            context: ./
+            args:
+                - uid=${uid}
+                - gid=${gid}
+                - user=${user}
+        expose:
+            - 5000
+        ports:
+            - "5000:5000"
+        volumes:
+            - ./deep_trader:/deep_trader
