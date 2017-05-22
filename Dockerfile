@@ -16,14 +16,14 @@ RUN adduser --uid ${uid} --gid ${gid} --disabled-password ${user} --gecos ""
 RUN pip install cython
 RUN pip install pip-tools
 
-WORKDIR /deep-trader
-ADD ./requirements.txt /deep-trader
-ADD ./dev-requirements.txt /deep-trader
-ADD ./Makefile /deep-trader
+WORKDIR /deep_trader
+ADD ./requirements.txt /deep_trader
+ADD ./dev-requirements.txt /deep_trader
+ADD ./Makefile /deep_trader
 RUN make sync_package
 
-ADD ./ /deep-trader
+ADD ./ /deep_trader
 RUN pip install -e .[dev]
 
 USER ${user}
-CMD ["/bin/bash"]
+CMD ["python", "run.py"]

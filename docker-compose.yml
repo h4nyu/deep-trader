@@ -1,8 +1,8 @@
 version: '2'
 services:
-    deep-trader:
-        image: deep-trader
-        container_name: deep-trader
+    deep_trader:
+        image: deep_trader:0.1
+        container_name: deep_trader
         env_file:
             .env
         build: 
@@ -16,4 +16,5 @@ services:
         ports:
             - "5000:5000"
         volumes:
-            - ./deep_trader:/deep_trader
+            - ./:/deep_trader
+        restart: always
