@@ -1,4 +1,4 @@
-from deep_trader import app
+from trader import app
 
 
 @app.route('/')

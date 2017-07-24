@@ -11,3 +11,5 @@ services:
             - .:/srv
         expose:
             - 3031
+        ports:
+            - "8888:5000"
