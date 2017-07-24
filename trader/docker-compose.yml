@@ -13,3 +13,5 @@ services:
             - 3031
         ports:
             - "8888:5000"
+        restart: always
+

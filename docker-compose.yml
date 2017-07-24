@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+    trader:
+        extends:
+            file: ./trader/docker-compose.yml
+            service: trader
+        container_name: trader
+
+    database:
+        extends:
+            file: ./database/docker-compose.yml
+            service: database
+        container_name: database
+        ports:
+            - "5432:5432"
