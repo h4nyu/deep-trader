@@ -4,8 +4,4 @@ stages:
 build:
     stage: test
     script:
-        - virtualenv -p /usr/bin/python3.5 .
-        - source bin/activate
-        - make install_dev
-        - pytest
-
+        pass
