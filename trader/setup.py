@@ -15,10 +15,10 @@ dev_reqs = [str(ir.req) for ir in dev_reqs]
 
 
 setup(
-    name="deep_trader",
+    name="trader",
     version="0.1",
     description="TODO",
-    author='Fintech Group',
+    author='Fintx Group',
     author_email='yao.ntno@gmail.com',
     url='TODO',
     license="TODO",

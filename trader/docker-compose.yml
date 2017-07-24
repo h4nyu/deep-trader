@@ -1,20 +1,13 @@
 version: '2'
+
 services:
-    deep_trader:
-        image: deep_trader:0.1
-        container_name: deep_trader
-        env_file:
-            .env
+    trader:
+        image: trader:latest
         build: 
-            context: ./
-            args:
-                - uid=${uid}
-                - gid=${gid}
-                - user=${user}
-        expose:
-            - 5000
-        ports:
-            - "5000:5000"
+            context: .
+            dockerfile: Dockerfile
+        user: "${uid}:${gid}"
         volumes:
-            - ./:/deep_trader
-        restart: always
+            - .:/srv
+        expose:
+            - 3031
