@@ -1,0 +1,18 @@
+version: '2'
+
+
+services:
+    database:
+        image: database:latest
+        container_name: database
+        build: 
+            context: ./
+        volumes:
+            - ./initdb:/docker-entrypoint-initdb.d
+            - ./backup:/backup
+        environment:
+            - POSTGRES_USER=fintex
+            - POSTGRES_PASSWORD=fintex
+            - POSTGRES_DB=fintex
+        expose:
+            - 5432
