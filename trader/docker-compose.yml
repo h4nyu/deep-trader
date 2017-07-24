@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+    trader:
+        image: trader:latest
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        user: "${uid}:${gid}"
+        volumes:
+            - .:/srv
+        expose:
+            - 3031
+        ports:
+            - "8888:5000"

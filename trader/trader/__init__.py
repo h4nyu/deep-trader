@@ -2,4 +2,4 @@
 # -*- coding: utf-8 -*-
 
 from .app import app
-from deep_trader import views
+from trader import views

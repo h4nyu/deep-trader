@@ -4,7 +4,7 @@
 import pytest
 from datetime import datetime
 from datetime import timedelta
-from deep_trader.collector import GCollector
+from trader.collector import GCollector
 
 
 @pytest.fixture
